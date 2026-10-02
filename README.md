@@ -1,27 +1,17 @@
-# DocuMind AI
+DocuMind AI
 
-## RAG-Based Intelligent Document Question Answering System
-
+RAG-Based Intelligent Document Question Answering System
 DocuMind AI is an intelligent document question-answering system built using Retrieval-Augmented Generation (RAG).
 
 The system allows users to upload PDF documents and ask natural-language questions about their contents. Instead of sending the entire document directly to an LLM, DocuMind AI retrieves the most relevant passages using semantic search and provides them as context to the language model.
-
 This helps produce answers that are grounded in the uploaded document and provides source page references for transparency.
 
----
-
-## Project Overview
+Project Overview
 
 DocuMind AI follows a complete Retrieval-Augmented Generation pipeline:
-
-**PDF → Text Extraction → Chunking → Embeddings → FAISS Retrieval → LLM Generation → Grounded Answer**
-
-The system combines traditional document processing, semantic search, vector databases, and large language models into a single application.
-
----
-
-## Key Features
-
+PDF → Text Extraction → Chunking → Embeddings → FAISS Retrieval → LLM Generation → Grounded Answer
+The system combines document processing, semantic search, vector retrieval, and large language models into a single application.
+Key Features
 - PDF document upload
 - Automatic text extraction from PDF files
 - Overlapping text chunking
@@ -36,11 +26,8 @@ The system combines traditional document processing, semantic search, vector dat
 - Answer grounding evaluation
 - Streamlit-based interface
 
----
-
-## System Architecture
-
-```text
+System Architecture
+ 
                     ┌─────────────────┐
                     │   PDF Document  │
                     └────────┬────────┘
@@ -55,13 +42,13 @@ The system combines traditional document processing, semantic search, vector dat
                     ┌─────────────────┐
                     │    Chunking     │
                     │  800 characters │
-                    │ 150 overlap     │
+                    │  150 overlap    │
                     └────────┬────────┘
                              │
                              ▼
                     ┌─────────────────┐
                     │   Embeddings    │
-                    │ MiniLM-L6-v2    │
+                    │ all-MiniLM-L6-v2│
                     └────────┬────────┘
                              │
                              ▼
@@ -70,17 +57,17 @@ The system combines traditional document processing, semantic search, vector dat
                     │      Store      │
                     └────────┬────────┘
                              │
-                 User Question
+                       User Question
                              │
                              ▼
                     ┌─────────────────┐
                     │    Retriever    │
-                    │ Top-K Chunks    │
+                    │   Top-K Chunks  │
                     └────────┬────────┘
                              │
                              ▼
                     ┌─────────────────┐
-                    │   Groq LLM      │
+                    │    Groq LLM     │
                     │ Answer Generation│
                     └────────┬────────┘
                              │
@@ -91,35 +78,37 @@ The system combines traditional document processing, semantic search, vector dat
                     └─────────────────┘
 
 
-## Project Structure
+Project Structure
 
-```text
 documind-ai/
 │
 ├── app/
 │   └── streamlit_app.py
 │
-├── data/
-│   └── research_paper.pdf
-│
 ├── src/
 │   ├── ingestion/
+│   │   ├── __init__.py
 │   │   └── pdf_loader.py
 │   │
 │   ├── preprocessing/
+│   │   ├── __init__.py
 │   │   └── chunker.py
 │   │
 │   ├── embeddings/
+│   │   ├── __init__.py
 │   │   └── embedding_model.py
 │   │
 │   ├── retrieval/
+│   │   ├── __init__.py
 │   │   ├── vector_store.py
 │   │   └── retriever.py
 │   │
 │   └── generation/
+│       ├── __init__.py
 │       └── llm.py
 │
 ├── tests/
+│   ├── __init__.py
 │   ├── test_pdf.py
 │   ├── test_chunker.py
 │   ├── test_embeddings.py
@@ -129,21 +118,80 @@ documind-ai/
 │   ├── test_evaluation.py
 │   └── test_answer_evaluation.py
 │
+├── screenshots/
+│   └── documind-home.png
+│
 ├── .gitignore
+├── LICENSE
 ├── README.md
 └── requirements.txt
 
-## Main Components
+Main Components
 
-- **PDF Ingestion** — Extracts text and page information from PDF documents.
-- **Chunking** — Splits documents into overlapping text segments.
-- **Embeddings** — Converts text chunks into numerical vector representations.
-- **FAISS Retrieval** — Finds the most relevant document chunks for a user query.
-- **LLM Generation** — Generates answers using retrieved document context.
-- **Source Attribution** — Displays the document pages used to generate an answer.
-- **Evaluation** — Tests retrieval quality and whether generated answers contain expected concepts.
-- **Streamlit UI** — Provides an interactive interface for uploading documents and asking questions.
+- PDF Ingestion — Extracts text and page information from PDF documents.
+- Chunking — Splits documents into overlapping text segments.
+- Embeddings — Converts text chunks into numerical vector representations.
+- FAISS Retrieval — Finds the most relevant document chunks for a user query.
+- LLM Generation — Generates answers using retrieved document context.
+- Source Attribution — Displays the document pages used to generate an answer.
+- Evaluation — Tests retrieval quality and answer grounding.
+- Streamlit UI — Provides an interactive interface for uploading documents and asking questions.
 
-## Application Preview
+Technologies Used
 
-<img width="951" height="440" alt="documind-home" src="https://github.com/user-attachments/assets/217a1429-1b42-42bc-9967-8e8e5380e03b" />
+- Python
+- Streamlit
+- PyMuPDF
+- Sentence Transformers
+- FAISS
+- NumPy
+- Groq API
+- Large Language Models
+- Git & GitHub
+
+Installation
+
+git clone https://github.com/thesrisaga/documind-ai.git
+cd documind-ai
+pip install -r requirements.txt
+
+Environment Configuration
+
+Set your Groq API key as an environment variable:
+$env:GROQ_API_KEY="YOUR_API_KEY"
+Do not commit API keys or other secrets to GitHub.
+
+Running the Application
+
+streamlit run app/streamlit_app.py
+Upload a PDF document, enter a question, and DocuMind AI will retrieve relevant document passages and generate a grounded answer.
+
+Evaluation
+
+The project includes tests for:
+- PDF text extraction
+- Text chunking
+- Embedding generation
+- FAISS vector retrieval
+- Retriever functionality
+- End-to-end RAG generation
+- Retrieval evaluation
+- Answer grounding evaluation
+
+Application Preview
+
+![DocuMind AI Application](screenshots/documind-home.png)
+ 
+Future Improvements
+
+- Multi-document support
+- Conversation history
+- Improved source citation
+- RAG evaluation metrics
+- Retrieval quality optimization
+- Document comparison
+- Improved UI/UX
+- Cloud deployment
+
+License
+This project is licensed under the MIT License.
