@@ -146,4 +146,4 @@ documind-ai/
 
 ## Application Preview
 
-![DocuMind AI Application](screenshots/documind-home.png)
+<img width="951" height="440" alt="documind-home" src="https://github.com/user-attachments/assets/217a1429-1b42-42bc-9967-8e8e5380e03b" />
