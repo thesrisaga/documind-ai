@@ -1,6 +1,8 @@
 DocuMind AI
-
 RAG-Based Intelligent Document Question Answering System
+
+[Live Demo](https://documind-ai-6tqwd3rg6rnsendelwpwfj.streamlit.app) | [📂 GitHub Repository](https://github.com/thesrisaga/documind-ai)
+
 DocuMind AI is an intelligent document question-answering system built using Retrieval-Augmented Generation (RAG).
 
 The system allows users to upload PDF documents and ask natural-language questions about their contents. Instead of sending the entire document directly to an LLM, DocuMind AI retrieves the most relevant passages using semantic search and provides them as context to the language model.
