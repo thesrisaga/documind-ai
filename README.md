@@ -183,6 +183,38 @@ The project includes tests for:
 Application Preview
 
 ![DocuMind AI Application](screenshots/documind-home.png)
+
+## Demo / Usage
+
+1. Launch the Streamlit application.
+2. Upload one or more PDF documents.
+3. Wait for the documents to be processed and indexed.
+4. Enter a natural-language question about the uploaded documents.
+5. DocuMind AI retrieves the most relevant document passages.
+6. The retrieved context is passed to the LLM for answer generation.
+7. The application displays the grounded answer along with the source pages.
+
+### Example
+
+**Question:**
+
+> What factors influence successful stem cell differentiation?
+
+**Result:**
+
+DocuMind AI retrieves relevant passages from the research paper and generates an answer based only on the retrieved document context.
+
+The application also displays the source pages used to generate the answer.
+
+### Out-of-Document Questions
+
+DocuMind AI is designed to avoid unsupported answers.
+
+If a question cannot be answered using the uploaded documents, the system responds:
+
+> I could not find sufficient information in the provided documents.
+
+This helps reduce hallucinations and keeps generated answers grounded in the available document evidence.
  
 Future Improvements
 
