@@ -80,6 +80,8 @@ System Architecture
 
 Project Structure
 
+
+```text
 documind-ai/
 │
 ├── app/
@@ -125,6 +127,8 @@ documind-ai/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
+
+```text
 
 Main Components
 
