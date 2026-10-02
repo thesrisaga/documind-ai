@@ -89,3 +89,57 @@ The system combines traditional document processing, semantic search, vector dat
                     │ Grounded Answer │
                     │ + Source Pages  │
                     └─────────────────┘
+
+
+## Project Structure
+
+```text
+documind-ai/
+│
+├── app/
+│   └── streamlit_app.py
+│
+├── data/
+│   └── research_paper.pdf
+│
+├── src/
+│   ├── ingestion/
+│   │   └── pdf_loader.py
+│   │
+│   ├── preprocessing/
+│   │   └── chunker.py
+│   │
+│   ├── embeddings/
+│   │   └── embedding_model.py
+│   │
+│   ├── retrieval/
+│   │   ├── vector_store.py
+│   │   └── retriever.py
+│   │
+│   └── generation/
+│       └── llm.py
+│
+├── tests/
+│   ├── test_pdf.py
+│   ├── test_chunker.py
+│   ├── test_embeddings.py
+│   ├── test_vector_store.py
+│   ├── test_retriever.py
+│   ├── test_rag.py
+│   ├── test_evaluation.py
+│   └── test_answer_evaluation.py
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+
+## Main Components
+
+- **PDF Ingestion** — Extracts text and page information from PDF documents.
+- **Chunking** — Splits documents into overlapping text segments.
+- **Embeddings** — Converts text chunks into numerical vector representations.
+- **FAISS Retrieval** — Finds the most relevant document chunks for a user query.
+- **LLM Generation** — Generates answers using retrieved document context.
+- **Source Attribution** — Displays the document pages used to generate an answer.
+- **Evaluation** — Tests retrieval quality and whether generated answers contain expected concepts.
+- **Streamlit UI** — Provides an interactive interface for uploading documents and asking questions.
