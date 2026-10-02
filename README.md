@@ -127,9 +127,7 @@ documind-ai/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
-
-```text
-
+ ```
 Main Components
 
 - PDF Ingestion — Extracts text and page information from PDF documents.
