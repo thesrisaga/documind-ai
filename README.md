@@ -143,3 +143,7 @@ documind-ai/
 - **Source Attribution** — Displays the document pages used to generate an answer.
 - **Evaluation** — Tests retrieval quality and whether generated answers contain expected concepts.
 - **Streamlit UI** — Provides an interactive interface for uploading documents and asking questions.
+
+## Application Preview
+
+![DocuMind AI Application](screenshots/documind-home.png)
